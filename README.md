@@ -1,2 +1,2 @@
-# 7DSGC-Diamond-Calc
-A diamond calculator for 7 Deadly Sins Grand Cross
+# 7dsgcCalc
+Diamond Calculator for 7dsgc

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7DSGC Diamond Calculator</title>
+    <script src="https://kit.fontawesome.com/60da566315.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./public/assets/stylesheets/style.css">
+</head>
+<body>
+    <div class="topnav">
+        <h2>7DSGC Diamond Calculator</h2>
+        <div class="nav-items">
+          <a class="" href="index.html">PT</a>
+          <a class="active" href="eng.html">ENG</a>
+        </div>
+      </div>
+    <div id="main">
+        <div id="calc" class="flex-row space-between gap-2">
+            <div id="container-1"  class="flex-col container space-between">
+                <!--CONTAINER TEMPO-->
+                <fieldset id="tempo" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">TIME</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--DATA INICIAL-->
+                    <div class="flex-row space-between">
+                        <label for="date_ini">First Day: </label>
+                        <input type="date" id="date_ini" name="date_ini">
+                    </div>
+                    <!--DATA FINAL-->
+                    <div class="flex-row space-between">
+                        <label for="date_end">Final Day: </label>
+                        <input type="date" id="date_end" name="date_end">
+                    </div>
+                </fieldset>
+                <!--CONTAINER PVP F2P-->
+                <fieldset id="pvp-f2p" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">F2P PVPs</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--CONTAINER PVP NORMAL-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="pvp_normal" name="pvp_normal" class="margin-0 padding-0 input-check">
+                            <label for="pvp_normal">Ungeared: </label>
+                        </div>
+                        <div>
+                            <select name="pvp_normal_tier" id="pvp_normal_tier">
+                                <option value="" disabled selected>Tier</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <select name="pvp_normal_rank" id="pvp_normal_rank">
+                                <option value="" disabled selected>Rank</option>
+                                <option value="campeao">Champion</option>
+                                <option value="mestre">Master</option>
+                                <option value="platina">Platinum</option>
+                                <option value="ouro">Gold</option>
+                                <option value="prata">Silver</option>
+                                <option value="bronze">Bronze</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--CONTAINER PVP CHAOS-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="pvp_chaos" name="pvp_chaos" class="margin-0 padding-0 input-check">
+                            <label for="pvp_chaos">Chaos: </label>
+                        </div>
+                        <select name="pvp_chaos_rank" id="pvp_chaos_rank">
+                            <option value="" disabled selected>Rank</option>
+                            <option value="1">1%</option>
+                            <option value="5">5%</option>
+                            <option value="10">10%</option>
+                            <option value="30">30%</option>
+                            <option value="50">50%</option>
+                            <option value="70">70%</option>
+                            <option value="90">90%</option>
+                        </select>
+                    </div>
+                    <!--CONTAINER PVP BRIGA-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="pvp_briga" name="pvp_briga" class="margin-0 padding-0 input-check">
+                            <label for="pvp_briga">Brawl: </label>
+                        </div>
+                        <input type="number" id="pvp_briga_pontos" placeholder="Obtained Pts.">
+                        <select name="pvp_briga_ganhos" id="pvp_briga_ganhos">
+                            <option value="" disabled selected>Earned Pts.</option>
+                            <option value="500">500</option>
+                            <option value="800">800</option>
+                            <option value="1000">1000</option>
+                            <option value="1200">1200</option>
+                            <option value="1500">1500</option>
+                            <option value="1800">1800</option>
+                            <option value="2000">2000</option>
+                            <option value="2500">2500</option>
+                            <option value="2600">2600</option>
+                            <option value="2700">2700</option>
+                            <option value="2800">2800</option>
+                            <option value="2900">2900</option>
+                            <option value="3000">3000</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <!--CONTAINER PVP TEMPORADA-->
+                <fieldset id="pvp-temp" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">SEASONAL PVPs</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--CONTAINER PVP TEMP NORMAL-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="pvp_normal_temp" name="pvp_normal_temp" class="margin-0 padding-0 input-check">
+                            <label for="pvp_normal_temp">Seasonal Ungeared: </label>
+                        </div>
+                        <select name="pvp_normal_temp_rank" id="pvp_normal_temp_rank">
+                            <option value="" disabled selected>Rank</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4a10">4th to 10th</option>
+                            <option value="11a30">11th to 30th</option>
+                            <option value="31a50">31st to 50th</option>
+                            <option value="51a100">51st to 100th</option>
+                        </select>
+                    </div>
+                    <!--CONTAINER PVP TEMP ELITE-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="pvp_elite_temp" name="pvp_elite_temp" class="margin-0 padding-0 input-check">
+                            <label for="pvp_elite_temp">Seasonal Elite: </label>
+                        </div>
+                        <select name="pvp_elite_temp_rank" id="pvp_elite_temp_rank">
+                            <option value="" disabled selected>Rank</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4a10">4th to 10th</option>
+                            <option value="11a30">11th to 30th</option>
+                            <option value="31a50">31st to 50th</option>
+                            <option value="51a100">51st to 100th</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+            <div id="container-2" class="flex-col container space-between">
+                <!--CONTAINER LOGIN-->
+                <fieldset id="login" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">DAILY LOGIN</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--TEMPO 1 DIAMANTE-->
+                    <div class="flex-row space-between">
+                        <label for="login_primeiro">First Diamond: </label>
+                        <input type="number" id="login_primeiro" name="login_primeiro" placeholder="Days">
+                    </div>
+                    <!--TEMPO 2 DIAMANTE-->
+                    <div class="flex-row space-between">
+                        <label for="login_segundo">Second Diamond: </label>
+                        <input type="number" id="login_segundo" name="login_segundo" placeholder="Days">
+                    </div>
+                </fieldset>
+                <!--CONTAINER MISSÕES DIÁRIAS-->
+                <fieldset id="missoes_diarias_container" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">DAILIES</p>
+                        <input type="checkbox" id="missoes_diarias"class="margin-0 padding-0 input-check">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--DIARIAS ATIVAS-->
+                    <div class="flex-row">
+                        <div>
+                            <input type="checkbox" id="buff_diarias" name="buff_diarias" class="margin-0 padding-0 input-check">
+                            <label for="buff_diarias">Buff Event Active </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!--CONTAINER HISTORIA-->
+                <fieldset id="historia" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">STORY MODE</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--CAPITULOS-->
+                    <div class="flex-row space-between">
+                        <label for="capitulos">Chapters: </label>
+                        <input type="number" id="capitulos" name="capitulos" placeholder="Amount">
+                    </div>
+                    <!--LUTAS-->
+                    <div class="flex-row space-between">
+                        <label for="lutas">Fights: </label>
+                        <input type="number" id="lutas" name="lutas" placeholder="Amount">
+                    </div>
+                </fieldset>
+            </div>
+            <div id="container-3" class="flex-col container space-between">
+                <!--FARM F2P-->
+                <fieldset id="farm_f2p" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">F2P FARM</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--DIAMANTES F2P-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="diamantes_f2p" name="diamantes_f2p" class="margin-0 padding-0 input-check">
+                            <label for="diamantes_f2p">F2P Diamonds: </label>
+                        </div>
+                        <input type="number" id="diamantes_f2p_qtd" name="diamantes_f2p_qtd" placeholder="Daily Amount">
+                    </div>
+                    <!--CHECKIN GUILDA-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="checkin_guilda" name="checkin_guilda" class="margin-0 padding-0 input-check">
+                            <label for="checkin_guilda">Knighthood Check-in</label>
+                        </div>
+                </fieldset>
+                <!--PACOTES P2W-->
+                <fieldset id="farm_f2p" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">P2W BUNDLES</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--SEMANAL-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="semanal" name="semanal" class="margin-0 padding-0 input-check">
+                            <label for="semanal">Weekly Sub. Evolution: </label>
+                        </div>
+                        <input type="number" id="semanal_qtd" name="semanal_qtd" placeholder="Amount">
+                    </div>
+                    <!--MENSAL-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="mensal" name="mensal" class="margin-0 padding-0 input-check">
+                            <label for="semanal">Monthly Sub. Upgrade: </label>
+                        </div>
+                        <input type="number" id="mensal_qtd" name="mensal_qtd" placeholder="Amount">
+                    </div>
+                    <!--ASS. SEMANAL VIGOR-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="semanal_vigor" name="semanal_vigor" class="margin-0 padding-0 input-check">
+                            <label for="semanal_vigor">Weekly Sub. Stamina: </label>
+                        </div>
+                        <input type="number" id="semanal_vigor_qtd" name="semanal_vigor_qtd" placeholder="Amount">
+                    </div>
+                    <!--ASS. SEMANAL DIAMANTE-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="semanal_dimas" name="semanal_dimas" class="margin-0 padding-0 input-check">
+                            <label for="semanal_dimas">Weekly Sub. Diamonds: </label>
+                        </div>
+                        <input type="number" id="semanal_dimas_qtd" name="semanal_dimas_qtd" placeholder="Amount">
+                    </div>
+                    <!--IMPULSO MELHORIA-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="impulso_melhoria" name="impulso_melhoria" class="margin-0 padding-0 input-check">
+                            <label for="impulso_melhoria">Enhancement Booster: </label>
+                        </div>
+                        <input type="number" id="impulso_melhoria_qtd" name="impulso_melhoria_qtd" placeholder="Amount">
+                    </div>
+                    <!--IMPULSO VIGOR-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="impulso_vigor" name="impulso_vigor" class="margin-0 padding-0 input-check">
+                            <label for="impulso_vigor">Stamina Booster: </label>
+                        </div>
+                        <input type="number" id="impulso_vigor_qtd" name="impulso_vigor_qtd" placeholder="Amount">
+                    </div>
+                    <!--APRIMORAMENTO DE HEROI-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="aprim_heroi" name="aprim_heroi" class="margin-0 padding-0 input-check">
+                            <label for="aprim_heroi">Hero Upgrade Bundle: </label>
+                        </div>
+                        <input type="number" id="aprim_heroi_qtd" name="aprim_heroi_qtd" placeholder="Amount">
+                    </div>
+                    <!--HAWK PASS-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="hawkpass" name="hawkpass" class="margin-0 padding-0 input-check">
+                            <label for="hawkpass">Hawk Pass Premium: </label>
+                        </div>
+                        <input type="number" id="hawkpass_qtd" name="hawkpass_qtd" placeholder="Amount">
+                    </div>
+                </fieldset>
+            </div>
+            <div id="container-4" class="flex-col container space-between">
+                <!--FORTE SOLGRES-->
+                <fieldset id="farm_f2p" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">FORT SOLGRES</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--FASES DE BATALHA-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="solgres_batalha" name="solgres_batalha" class="margin-0 padding-0 input-check">
+                            <label for="solgres_batalha">Battle Events</label>
+                        </div>
+                    </div>
+                    <!--FASES ESPECIAIS-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="solgres_especial" name="solgres_especial" class="margin-0 padding-0 input-check">
+                            <label for="solgres_especial">Special Events</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!--EVENTOS-->
+                <fieldset id="eventos" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">EVENTS</p>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--EVENT BOSS-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="event_boss" name="event_boss" class="margin-0 padding-0 input-check">
+                            <label for="event_boss">Event Boss</label>
+                        </div>
+                    </div>
+                    <!--LABIRINTO-->
+                    <div class="flex-row space-between">
+                        <div>
+                            <input type="checkbox" id="labirinto" name="labirinto" class="margin-0 padding-0 input-check">
+                            <label for="labirinto">Labyrinth</label>
+                        </div>
+                    </div>
+                    <!--HERO ARENA-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="hero_arena" name="hero_arena" class="margin-0 padding-0 input-check">
+                            <label for="hero_arena">Hero Arena: </label>
+                        </div>
+                        <div>
+                            <select name="hero_arena_tier" id="hero_arena_tier">
+                                <option value="" disabled selected>Teams</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7+</option>
+                            </select>
+                            <select name="hero_arena_rank" id="hero_arena_rank">
+                                <option value="" disabled selected>Rank</option>
+                                <option value="desafiante">Challenger</option>
+                                <option value="campeao">Champion</option>
+                                <option value="mestre">Master</option>
+                                <option value="platina">Platinum</option>
+                                <option value="ouro">Gold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--FINAL BOSS-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="final_boss" name="final_boss" class="margin-0 padding-0 input-check">
+                            <label for="final_boss">Final Boss: </label>
+                        </div>
+                        <select name="final_boss_rank" id="final_boss_rank">
+                            <option value="" disabled selected>Rank %</option>
+                            <option value="60">60% or -</option>
+                            <option value="80">80%</option>
+                            <option value="100">100%</option>
+                        </select>
+                    </div>
+                    <!--ATUALIZAÇÕES-->
+                    <div class="flex-row space-between">
+                        <div class="mr-2">
+                            <input type="checkbox" id="updates" name="updates" class="margin-0 padding-0 input-check">
+                            <label for="updates">Updates: </label>
+                        </div>
+                        <input type="number" id="updates_horas" placeholder="Hours">
+                    </div>
+                </fieldset>
+                <!--RESULTADO-->
+                <fieldset id="results" class="sub-container">
+                    <legend class="flex-row gap-2 align-center">
+                        <p class="title margin-0 padding-0">RESULTS</p>
+                        <button onclick="calc()">Calculate</button>
+                        <i class="fa-regular fa-circle-question"></i>
+                    </legend>
+                    <!--BOTAO CALCULAR-->
+                    
+                    <!--RESULTADO FINAL-->
+                    <div class="flex-row space-between">
+                        <p id="result_value">Diamonds: 0</p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getDays() {
+            var date_ini = new Date(document.getElementById("date_ini").value);
+            var date_end = new Date(document.getElementById("date_end").value);
+            var time_diff = date_end.getTime() - date_ini.getTime();  
+            var days_diff = time_diff / (1000 * 60 * 60 * 24);
+
+            return (days_diff + 1);
+        }
+
+        function getPvpNormalDiamonds() {
+            var pvp_normal = document.getElementById("pvp_normal");
+            var normal_tier = document.getElementById("pvp_normal_tier").value;
+            var normal_rank = document.getElementById("pvp_normal_rank").value;
+            
+            var date_ini = new Date(document.getElementById("date_ini").value);
+            var date_end = new Date(document.getElementById("date_end").value);
+            var segundas = 0;
+
+            var normal_diamonds = 0;
+            var normal_diamonds_interval = 0;
+            
+            if (pvp_normal.checked) {
+                if(normal_rank == "campeao") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 60;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 56;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 54;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 52;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 50;
+                    }
+                } else if(normal_rank == "mestre") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 50;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 48;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 46;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 44;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 42;
+                    }
+                } else if(normal_rank == "platina") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 42;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 40;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 38;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 36;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 34;
+                    }
+                } else if(normal_rank == "ouro") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 34;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 32;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 30;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 28;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 26;
+                    }
+                } else if(normal_rank == "prata") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 26;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 24;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 22;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 20;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 18;
+                    }
+                } else if(normal_rank == "bronze") {
+                    if(normal_tier == "1") {
+                        normal_diamonds = 18;
+                    }
+                    if(normal_tier == "2") {
+                        normal_diamonds = 16;
+                    }
+                    if(normal_tier == "3") {
+                        normal_diamonds = 14;
+                    }
+                    if(normal_tier == "4") {
+                        normal_diamonds = 12;
+                    }
+                    if(normal_tier == "5") {
+                        normal_diamonds = 10;
+                    }
+                }
+
+                while (date_ini.getDay() !== 0) {
+                    date_ini.setDate(date_ini.getDate() + 1);
+                }
+
+                while (date_ini <= date_end) {
+                    segundas++;
+                    date_ini.setDate(date_ini.getDate() + 7); // AVANÇAR PARA O PROXIMO DOMINGO
+                }
+
+                normal_diamonds_interval = (normal_diamonds * segundas);
+            }
+
+            return normal_diamonds_interval;
+        }
+
+        function getPvpChaosDiamonds() {
+            var pvp_chaos = document.getElementById("pvp_chaos");
+            var pvp_chaos_rank = document.getElementById("pvp_chaos_rank").value;
+            var chaos_diamonds = 0;
+
+            if(pvp_chaos.checked) {
+                if(pvp_chaos_rank == "1") {
+                    chaos_diamonds = 100;
+                } else if(pvp_chaos_rank == "5") {
+                    chaos_diamonds = 50;
+                } else if(pvp_chaos_rank == "10") {
+                    chaos_diamonds = 40;
+                } else if(pvp_chaos_rank == "30") {
+                    chaos_diamonds = 30;
+                } else if(pvp_chaos_rank == "50") {
+                    chaos_diamonds = 20;
+                } else if(pvp_chaos_rank == "70") {
+                    chaos_diamonds = 10;
+                } else if(pvp_chaos_rank == "90") {
+                    chaos_diamonds = 5;
+                }
+            }
+            return chaos_diamonds;
+        }
+
+        function getPvpBrigaDiamonds(days) {
+            var pvp_briga = document.getElementById("pvp_briga");
+            var pvp_briga_pontos = parseInt(document.getElementById("pvp_briga_pontos").value);
+            var pvp_briga_ganhos = parseInt(document.getElementById("pvp_briga_ganhos").value);
+            
+            var pontos_totais = pvp_briga_pontos + (pvp_briga_ganhos * days);
+            var barras_completas = Math.floor(pontos_totais / 41000);
+            var pontos_resto = (pontos_totais % 41000);
+
+            var briga_diamonds = 0;
+           
+            if(pvp_briga.checked && pvp_briga_pontos && pvp_briga_ganhos) {
+                if(pontos_resto >= 4000) {
+                    briga_diamonds = briga_diamonds + 3;
+                }
+                if(pontos_resto >= 16000) {
+                    briga_diamonds = briga_diamonds + 5;
+                }
+                briga_diamonds = briga_diamonds + (barras_completas * 15);
+            }
+
+            return briga_diamonds;
+        }
+
+        function getPvpNormalTemporadaDiamonds() {
+            var pvp_normal_temp = document.getElementById("pvp_normal_temp");
+            var pvp_normal_temp_rank = document.getElementById("pvp_normal_temp_rank").value;
+            var normal_temp_diamonds = 0;
+
+            if(pvp_normal_temp.checked) {
+                if(pvp_normal_temp_rank == "1") {
+                    normal_temp_diamonds = 100;
+                } else if(pvp_normal_temp_rank == "2") {
+                    normal_temp_diamonds = 70;
+                } else if(pvp_normal_temp_rank == "3") {
+                    normal_temp_diamonds = 50;
+                } else if(pvp_normal_temp_rank == "4a10") {
+                    normal_temp_diamonds = 40;
+                } else if(pvp_normal_temp_rank == "11a30") {
+                    normal_temp_diamonds = 30;
+                } else if(pvp_normal_temp_rank == "31a50") {
+                    normal_temp_diamonds = 20;
+                } else if(pvp_normal_temp_rank == "51a100") {
+                    normal_temp_diamonds = 10;
+                }
+            }
+            return normal_temp_diamonds;
+        }
+
+        function getPvpEliteTemporadaDiamonds() {
+            var pvp_elite_temp = document.getElementById("pvp_elite_temp");
+            var pvp_elite_temp_rank = document.getElementById("pvp_elite_temp_rank").value;
+            var elite_temp_diamonds = 0;
+
+            if(pvp_elite_temp.checked) {
+                if(pvp_elite_temp_rank == "1") {
+                    elite_temp_diamonds = 100;
+                } else if(pvp_elite_temp_rank == "2") {
+                    elite_temp_diamonds = 80;
+                } else if(pvp_elite_temp_rank == "3") {
+                    elite_temp_diamonds = 70;
+                } else if(pvp_elite_temp_rank == "4a10") {
+                    elite_temp_diamonds = 60;
+                } else if(pvp_elite_temp_rank == "11a30") {
+                    elite_temp_diamonds = 50;
+                } else if(pvp_elite_temp_rank == "31a50") {
+                    elite_temp_diamonds = 30;
+                } else if(pvp_elite_temp_rank == "51a100") {
+                    elite_temp_diamonds = 20;
+                }
+            }
+            return elite_temp_diamonds;
+        }
+
+        function getLoginDiamonds(days) {
+            var first_distance = parseInt(document.getElementById("login_primeiro").value);
+            var second_distance = parseInt(document.getElementById("login_segundo").value);
+            var interval = second_distance - first_distance;
+            var ciclos = 0;
+            var resto = 0;
+            var login_diamonds = 0;
+
+            //ESTÁ NUM INTERVALO DE 3 DIAS
+            if(interval == 4) {
+                ciclos = Math.floor((days / 7));
+                resto = Math.floor((days % 7));
+                if(resto >=3) {
+                    login_diamonds += 5;
+                }
+                login_diamonds += (ciclos * 10);
+            }
+
+            //ESTÁ NUM INTERVALO DE 4 DIAS
+            if(interval == 3) {
+                ciclos = Math.floor((days / 7));
+                resto = Math.floor((days % 7));
+                if(resto >=4) {
+                    login_diamonds += 5;
+                }
+                login_diamonds += (ciclos * 10);
+            }
+            return login_diamonds;
+        }
+
+        function getDailiesDiamonds(days) {
+            var missoes_diarias = document.getElementById("missoes_diarias");
+            var buff_dailies = document.getElementById("buff_diarias");
+            var date_ini = new Date(document.getElementById("date_ini").value);
+            var date_end = new Date(document.getElementById("date_end").value);
+            var domingos = 0;
+            var dailies_diamonds = 0;
+
+            //CALCULAR DOMINGOS
+            if(missoes_diarias.checked) {
+                while (date_ini.getDay() !== 6) {
+                    date_ini.setDate(date_ini.getDate() + 1);
+                }
+
+                while (date_ini <= date_end) {
+                    domingos++;
+                    date_ini.setDate(date_ini.getDate() + 7); // AVANÇAR PARA O PROXIMO DOMINGO
+                }
+                
+                if(buff_dailies.checked) {
+                    dailies_diamonds = (domingos * 8) + ((days-domingos) * 5);
+                } else {
+                    dailies_diamonds = (domingos * 6) + ((days-domingos) * 4);
+                }
+            }
+            return dailies_diamonds;
+        }
+
+        function getStoryDiamonds() {
+            var chapters = parseInt(document.getElementById("capitulos").value);
+            var lutas = parseInt(document.getElementById("lutas").value);
+            var story_diamonds = 0;
+
+            if(chapters) {
+                story_diamonds += (chapters * 30);
+            }
+            if(lutas) {
+                story_diamonds += lutas;
+            }
+
+            return story_diamonds;
+        }
+
+        function getF2pDiamonds(days) {
+            var farm_f2p = document.getElementById("diamantes_f2p");
+            var farm_qtd = parseInt(document.getElementById("diamantes_f2p_qtd").value);
+            var diamonds_f2p = 0;
+
+            if(farm_f2p.checked && farm_qtd) {
+                diamonds_f2p = (farm_qtd * days);
+            }
+
+            return diamonds_f2p;
+        }
+
+        function getGuildDiamonds(days) {
+            var checkin = document.getElementById("checkin_guilda");
+            var guild_diamonds = 0;
+
+            if(checkin.checked && days) {
+                guild_diamonds = days;
+            }
+
+            return guild_diamonds;
+        }
+
+        function getP2wDiamonds(days) {
+            var semanal = document.getElementById("semanal");
+            var mensal = document.getElementById("mensal");
+            var semanal_dimas = document.getElementById("semanal_dimas");
+            var semanal_vigor = document.getElementById("semanal_vigor");
+            var aprim_heroi = document.getElementById("aprim_heroi");
+            var impulso_melhoria = document.getElementById("impulso_melhoria");
+            var impulso_vigor = document.getElementById("impulso_vigor");
+            var hawkpass = document.getElementById("hawkpass");
+
+            var semanal_qtd = parseInt(document.getElementById("semanal_qtd").value);
+            var mensal_qtd = parseInt(document.getElementById("mensal_qtd").value);
+            var semanal_dimas_qtd = parseInt(document.getElementById("semanal_dimas_qtd").value);
+            var semanal_vigor_qtd = parseInt(document.getElementById("semanal_vigor_qtd").value);
+            var aprim_heroi_qtd = parseInt(document.getElementById("aprim_heroi_qtd").value);
+            var impulso_melhoria_qtd = parseInt(document.getElementById("impulso_melhoria_qtd").value);
+            var impulso_vigor_qtd = parseInt(document.getElementById("impulso_vigor_qtd").value);
+            var hawkpass_qtd = parseInt(document.getElementById("hawkpass_qtd").value);
+            
+            var diamonds_p2w = 0;
+
+            if(semanal.checked && semanal_qtd) {
+                diamonds_p2w += (semanal_qtd * 5);
+            }
+            if(mensal.checked && mensal_qtd) {
+                diamonds_p2w += ((mensal_qtd * 30) + (days * 5));
+                console.log(days);
+            }
+            if(semanal_dimas.checked && semanal_dimas_qtd) {
+                diamonds_p2w += ((semanal_dimas_qtd * 10) + (days * 7));
+            }
+            if(semanal_vigor.checked && semanal_vigor_qtd) {
+                diamonds_p2w += (semanal_vigor_qtd * 5);
+            }
+            if(aprim_heroi.checked && aprim_heroi_qtd) {
+                diamonds_p2w += (aprim_heroi_qtd * 30);
+            }
+            if(impulso_melhoria.checked && impulso_melhoria_qtd) {
+                diamonds_p2w += (impulso_melhoria_qtd * 30);
+            }
+            if(impulso_vigor.checked && impulso_vigor_qtd) {
+                diamonds_p2w += (impulso_vigor_qtd * 5);
+            }
+            if(hawkpass.checked && hawkpass_qtd) {
+                diamonds_p2w += (hawkpass_qtd * 20);
+            }
+
+            return diamonds_p2w;
+        }
+
+        function getSolgresDiamonds(days) {
+            var date_ini = new Date(document.getElementById("date_ini").value);
+            var date_end = new Date(document.getElementById("date_end").value);
+            
+            var solgres_batalha = document.getElementById("solgres_batalha");
+            var solgres_especial = document.getElementById("solgres_especial");
+            var solgres_diamonds = 0;
+
+            if(solgres_especial.checked) {
+                if(days < 14) {
+                    solgres_diamonds += days;
+                } else {
+                    solgres_diamonds += 14;
+                }
+            }
+
+            if(solgres_batalha.checked) {
+                var base_date = new Date(2024, 4, 7);
+                var time_ini_diff = date_ini.getTime() - base_date.getTime();
+                var ini_days_diff = (time_ini_diff / (1000 * 60 * 60 * 24) + 1);
+                var end_days_diff = ini_days_diff + (days-1);
+
+                var ini_weeks_diff = (ini_days_diff/7); //SEMANAS ATÉ A DATA INICIAL
+                var end_weeks_diff = (end_days_diff/7); //SEMANAS ATÉ A DATA FINAL
+
+                var double_weeks_ini = Math.floor(ini_weeks_diff / 4); //SEMANAS DUPLAS ATÉ A DATA INICIAL
+                var double_weeks_end = Math.floor(end_weeks_diff / 4); //SEMANAS DUPLAS ATÉ A DATA FINAL
+
+                var double_weeks = Math.floor(double_weeks_end - double_weeks_ini); //QTDD DE SEMANAS DUPLAS
+                var single_weeks = Math.floor(days / 7) - double_weeks; //QTDD DE SEMANAS UNICAS
+
+                solgres_diamonds += ((single_weeks * 2) + (double_weeks * 4));
+            }
+            return solgres_diamonds;
+        }
+
+        function getEventDiamonds() {
+            var event_boss = document.getElementById("event_boss");
+            var labirinto = document.getElementById("labirinto");
+            var hero_arena = document.getElementById("hero_arena");
+            var final_boss = document.getElementById("final_boss");
+            var updates = document.getElementById("updates");
+
+            var hero_arena_rank = document.getElementById("hero_arena_rank").value;
+            var hero_arena_tier = document.getElementById("hero_arena_tier").value;
+            var final_boss_rank = document.getElementById("final_boss_rank").value;
+            var updates_horas = parseInt(document.getElementById("updates_horas").value);
+
+            var event_diamonds = 0;
+
+            if(event_boss.checked) {
+                event_diamonds += 10;
+            }
+            if(labirinto.checked) {
+                event_diamonds += 40;
+            }
+            if(hero_arena.checked) {
+                if(hero_arena_rank == "desafiante") {
+                    if(hero_arena_tier == "4") {
+                        event_diamonds += 15;
+                    } else if(hero_arena_tier == "5") {
+                        event_diamonds += 12;
+                    } else if(hero_arena_tier == "6") {
+                        event_diamonds += 9;
+                    } else if(hero_arena_tier == "7") {
+                        event_diamonds += 6;
+                    }
+                } else if((hero_arena_rank == "campeao") || (hero_arena_rank == "mestre")) {
+                    if(hero_arena_tier == "4") {
+                        event_diamonds += 10;
+                    } else if(hero_arena_tier == "5") {
+                        event_diamonds += 8;
+                    } else if(hero_arena_tier == "6") {
+                        event_diamonds += 6;
+                    } else if(hero_arena_tier == "7") {
+                        event_diamonds += 4;
+                    }
+                } else if((hero_arena_rank == "platina") || (hero_arena_rank == "ouro")) {
+                    if(hero_arena_tier == "4") {
+                        event_diamonds += 5;
+                    } else if(hero_arena_tier == "5") {
+                        event_diamonds += 4;
+                    } else if(hero_arena_tier == "6") {
+                        event_diamonds += 3;
+                    } else if(hero_arena_tier == "7") {
+                        event_diamonds += 2;
+                    }
+                }
+            }
+
+            if(final_boss.checked) {
+                if(final_boss_rank == "60") {
+                    event_diamonds += 35;
+                } else if(final_boss_rank == "80") {
+                    event_diamonds += 15;
+                } else if(final_boss_rank == "100") {
+                    event_diamonds += 5;
+                }
+            }
+
+            if (updates.checked && updates_horas) {
+                event_diamonds += updates_horas;
+            }
+
+            return event_diamonds;
+        }
+
+        function calc() {
+            var days = getDays();
+
+            var normal_diamonds = getPvpNormalDiamonds();
+            var chaos_diamonds = getPvpChaosDiamonds();
+            var briga_diamonds = getPvpBrigaDiamonds(days);
+            //console.log(normal_diamonds + " | " + chaos_diamonds + " | " + briga_diamonds);
+
+            var normal_temp_diamonds = getPvpNormalTemporadaDiamonds();
+            var elite_temp_diamonds = getPvpEliteTemporadaDiamonds();
+            //console.log(normal_temp_diamonds + " | " + elite_temp_diamonds);
+
+            var login_diamonds = getLoginDiamonds(days);
+            var dailies_diamonds = getDailiesDiamonds(days);
+            var story_diamonds = getStoryDiamonds();
+            //console.log(login_diamonds + " | " + dailies_diamonds + " | " + story_diamonds);
+
+            var diamonds_f2p = getF2pDiamonds(days);
+            var guild_diamonds = getGuildDiamonds(days);
+            //console.log(diamonds_f2p + " | " + guild_diamonds);
+
+            var diamonds_p2w = getP2wDiamonds(days);
+            //console.log(diamonds_p2w);
+
+            var solgres_diamonds = getSolgresDiamonds(days);
+            var event_diamonds = getEventDiamonds();
+            //console.log(solgres_diamonds + " | " + event_diamonds);
+
+            var res = normal_diamonds + chaos_diamonds + briga_diamonds + normal_temp_diamonds +
+            elite_temp_diamonds + login_diamonds + dailies_diamonds + story_diamonds + diamonds_f2p +
+            guild_diamonds + diamonds_p2w + solgres_diamonds + event_diamonds;
+
+            var res_label = document.getElementById("result_value");
+            res_label.innerHTML = ("Diamonds: " + res);
+        }
+    </script>
+
+    <div id="tutorial">
+
+    </div>
+</body>
+</html>

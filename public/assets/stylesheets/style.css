@@ -1,0 +1,124 @@
+/* Default element styles */
+body {
+    color: white;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #1A1B1F;
+    padding: 0px;
+    margin: 0px;
+}
+
+input {
+    width: 100px;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100px;
+    box-sizing: border-box;
+}
+
+/* Specific element styles */
+#pvp_normal_tier, #hero_arena_tier {
+    width: auto;
+}
+
+/* Default flex-direction styles */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Misc styling properties */
+.gap-2 {
+    gap:  8px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.mr-2 {
+    margin-right: 10px;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.title {
+    font-weight: 700;
+}
+
+/* Checkbox spacing fix */
+.input-check {
+    width: auto;
+}
+
+
+/* Default Top Navbar Style */
+.topnav {
+    display: flex;
+    height: 56px;
+    width: auto;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343A40;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* Containers default style*/
+.container {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: auto;
+    border-radius: 8px;
+    background-color: #28292B;
+}
+
+/*Sub-Containers default style */
+.sub-container {
+    width: auto;
+    border-style: dotted;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 4px;
+}
