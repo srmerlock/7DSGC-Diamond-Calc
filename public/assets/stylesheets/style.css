@@ -7,6 +7,12 @@ body {
     margin: 0px;
 }
 
+a {
+    color: inherit;
+    text-decoration: inherit;
+
+}
+
 input {
     width: 100px;
     box-sizing: border-box;
@@ -20,6 +26,10 @@ select {
 /* Specific element styles */
 #pvp_normal_tier, #hero_arena_tier {
     width: auto;
+}
+
+#lbldiariasbuff {
+    text-decoration: line-through;
 }
 
 /* Default flex-direction styles */
