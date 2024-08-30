@@ -567,19 +567,26 @@
             var pvp_briga = document.getElementById("pvp_briga");
             var pvp_briga_pontos = parseInt(document.getElementById("pvp_briga_pontos").value);
             var pvp_briga_ganhos = parseInt(document.getElementById("pvp_briga_ganhos").value);
-            
+
             var pontos_totais = pvp_briga_pontos + (pvp_briga_ganhos * days);
             var barras_completas = Math.floor(pontos_totais / 41000);
             var pontos_resto = (pontos_totais % 41000);
 
             var briga_diamonds = 0;
-           
+                       
             if(pvp_briga.checked && pvp_briga_pontos && pvp_briga_ganhos) {
+                if (pvp_briga_pontos >= 16000) {
+                    briga_diamonds = briga_diamonds - 8;
+                } else if(pvp_briga_pontos >= 4000) {
+                    briga_diamonds = briga_diamonds - 3;
+                }
                 if(pontos_resto >= 4000) {
                     briga_diamonds = briga_diamonds + 3;
+                    
                 }
                 if(pontos_resto >= 16000) {
                     briga_diamonds = briga_diamonds + 5;
+                    
                 }
                 briga_diamonds = briga_diamonds + (barras_completas * 15);
             }
@@ -726,7 +733,7 @@
             var checkin = document.getElementById("checkin_guilda");
             var guild_diamonds = 0;
 
-            if(checkin.checked && days) {
+            if(checkin.checked) {
                 guild_diamonds = days;
             }
 
@@ -800,21 +807,27 @@
             }
 
             if(solgres_batalha.checked) {
-                var base_date = new Date(2024, 4, 7);
-                var time_ini_diff = date_ini.getTime() - base_date.getTime();
-                var ini_days_diff = (time_ini_diff / (1000 * 60 * 60 * 24) + 1);
-                var end_days_diff = ini_days_diff + (days-1);
+                var normal_weeks = 0;
+                var double_weeks = 0;
+                var time_day = 1000 * 60 * 60 * 24;
+                var time_week = time_day * 7;
 
-                var ini_weeks_diff = (ini_days_diff/7); //SEMANAS ATÉ A DATA INICIAL
-                var end_weeks_diff = (end_days_diff/7); //SEMANAS ATÉ A DATA FINAL
+                const base_date = new Date('2024-04-07');
+                const week_ini = new Date(date_ini.getTime() - (date_ini.getDay() * time_day));
+                const week_total = Math.ceil((date_end - week_ini + 1) / time_week);
 
-                var double_weeks_ini = Math.floor(ini_weeks_diff / 4); //SEMANAS DUPLAS ATÉ A DATA INICIAL
-                var double_weeks_end = Math.floor(end_weeks_diff / 4); //SEMANAS DUPLAS ATÉ A DATA FINAL
+                //DEFINE WEEKS
+                for (let i = 0; i < week_total; i++) {
+                    const today = new Date(week_ini.getTime() + i * time_week);
+                    const double_weeks_diff = Math.floor((today - base_date) / time_week);
 
-                var double_weeks = Math.floor(double_weeks_end - double_weeks_ini); //QTDD DE SEMANAS DUPLAS
-                var single_weeks = Math.floor(days / 7) - double_weeks; //QTDD DE SEMANAS UNICAS
-
-                solgres_diamonds += ((single_weeks * 2) + (double_weeks * 4));
+                    if (double_weeks_diff >= 0 && double_weeks_diff % 4 === 0) {
+                        double_weeks++;
+                    } else {
+                        normal_weeks++;
+                    }
+                }
+                solgres_diamonds += ((normal_weeks * 2) + (double_weeks * 4));
             }
             return solgres_diamonds;
         }
